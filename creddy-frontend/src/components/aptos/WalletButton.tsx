@@ -53,6 +53,11 @@ export default function WalletButtons() {
 		localStorage.removeItem("keylessAccount");
 		toast.success("Successfully disconnected account");
 	};
+
+	const handleSignIn = () => {
+		localStorage.setItem("userRole", "User"); // Set user role to "User" when signing in
+	};
+
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
@@ -72,7 +77,7 @@ export default function WalletButtons() {
 	return (
 		<div className='flex items-center justify-center m-auto sm:m-0 sm:px-4'>
 			<a href={redirectUrl.toString()} className='hover:no-underline'>
-				<button className={buttonStyles}>
+				<button className={buttonStyles} onClick={handleSignIn}>
 					<GoogleLogo />
 					<p>Sign in</p>
 				</button>
