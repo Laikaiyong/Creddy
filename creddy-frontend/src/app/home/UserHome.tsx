@@ -1,4 +1,5 @@
 import ProfileChart from "@/components/custom/ProfileChart";
+import { RecentTransactions } from "@/components/custom/RecentTransactions";
 
 export default function UserHome() {
     return (
@@ -15,7 +16,7 @@ function Test() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-5 gap-2 py-4 mt-4 min-h-screen">
             <div className="p-8 bg-white rounded-xl grid md:col-span-2 drop-shadow-lg">
-                <div className="flex flex-col items-center space-y-2 pb-[24px]"> {/* User Profile Section */}
+                <div className="flex flex-col items-center space-y-2 pb-[32px]"> {/* User Profile Section */}
                 <h1 className="font-semibold self-start">Profile</h1>
                     <div className="w-[200px] h-[200px]">
                     <img src="https://avatars.githubusercontent.com/u/76078213?v=4" alt="zkKing" className="w-full h-full rounded-full" />
@@ -31,6 +32,7 @@ function Test() {
                 <ProfileChart />
                 </div>
             </div>
+
             <div className="grid md:col-span-3 gap-2">
                 <div className="grid md:grid-cols-2 gap-2">
                     <div className="flex relative py-8 bg-gray-200 rounded-xl">
@@ -53,18 +55,11 @@ function Test() {
                             }}
                         ></div>
                     </div>
-                    <div className="flex relative py-8 bg-gray-200 rounded-xl">
-                        <div className="relative z-10 max-w-screen-xl text-gray-600 sm:px-4 md:px-8">
-                            <div className="max-w-lg space-y-3 px-4 sm:mx-auto sm:text-center sm:px-0">
-                                <h3 className="text-cyan-800 font-semibold">Contact</h3>
-                                <p className="text-black text-3xl font-semibold sm:text-4xl">
-                                    Get in touch
-                                </p>
-                                <p className="text-gray-600">
-                                    We’d love to hear from you! Please fill out the form bellow.
-                                </p>
-                            </div>
-                        </div>
+
+                    <div className="flex relative p-8 bg-gray-200 rounded-xl"> {/* Recent Transactions Section */}
+                        <div className="flex flex-col justify-center items-center space-y-2">
+                        <h1 className="font-semibold self-start text-cyan-800">Recent Activity</h1>
+                        <RecentTransactions />
                         <div
                             className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
                             style={{
@@ -73,12 +68,13 @@ function Test() {
                             }}
                         ></div>
                     </div>
+                    </div>
                 </div>
 
-                <div className="flex relative py-8 bg-gray-200 rounded-xl">
+                <div className="flex relative py-8 bg-gray-200 rounded-xl"> {/* Display NFT section */}
                     <div className="relative z-10 max-w-screen-xl text-gray-600 sm:px-4 md:px-8">
                         <div className="max-w-lg space-y-3 px-4 sm:mx-auto sm:text-center sm:px-0">
-                            <h3 className="text-cyan-800 font-semibold">Contact</h3>
+                            <h3 className="text-cyan-800 font-semibold self-start">Credentials</h3>
                             <p className="text-gray-600">
                                 We’d love to hear from you! Please fill out the form bellow.
                             </p>
