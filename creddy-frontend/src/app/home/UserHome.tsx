@@ -1,3 +1,5 @@
+import ProfileChart from "@/components/custom/ProfileChart";
+
 export default function UserHome() {
     return (
         <div className="md:mx-24 mx-12">
@@ -13,7 +15,7 @@ function Test() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-5 gap-2 py-4 mt-4 min-h-screen">
             <div className="p-8 bg-white rounded-xl grid md:col-span-2 drop-shadow-lg">
-                <div className="flex flex-col items-center space-y-4"> {/* User Profile Section */}
+                <div className="flex flex-col items-center space-y-2 pb-[24px]"> {/* User Profile Section */}
                 <h1 className="font-semibold self-start">Profile</h1>
                     <div className="w-[200px] h-[200px]">
                     <img src="https://avatars.githubusercontent.com/u/76078213?v=4" alt="zkKing" className="w-full h-full rounded-full" />
@@ -22,9 +24,12 @@ function Test() {
                     <p className="italic">Bio: Food and Swags is what makes an event great</p>
                 </div>
                 <div className="flex flex-col items-center space-y-4"> {/* Radar Chart Session */}
-                <h1 className="font-semibold self-start">Radar Chart</h1>
+                    <div className="self-start">
+                    <h1 className="font-semibold">Radar Chart</h1>
+                    <h3 className="text-[14px]">Based on the NFT(s) you earned:</h3>
+                    </div>
+                <ProfileChart />
                 </div>
-
             </div>
             <div className="grid md:col-span-3 gap-2">
                 <div className="grid md:grid-cols-2 gap-2">
