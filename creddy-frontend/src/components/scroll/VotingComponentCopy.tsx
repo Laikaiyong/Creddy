@@ -105,12 +105,8 @@ const VotingComponent: React.FC<VotingSystemProps> = ({ postId }) => {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button type="button" variant="secondary">
-              Cancel
-            </Button>
-            <Button type="button" variant="destructive">
-              Delete
-            </Button>
+          <button onClick={() => handleVote(true)}><AiFillCaretUp /></button>
+          <button onClick={() => handleVote(true)}><AiFillCaretUp /></button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
