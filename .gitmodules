@@ -1,0 +1,3 @@
+[submodule "creddy-scroll-backend/lib/forge-std"]
+	path = creddy-scroll-backend/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
