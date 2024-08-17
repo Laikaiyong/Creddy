@@ -62,7 +62,7 @@ export default function LandingPage() {
                 {/* About Section */}
                 <section className="px-4 lg:px-10 py-20 text-center">
                   <h1 className="font-bold text-[30px]">What is <span className="text-purple-600">Creddy?</span></h1>
-                  <p className="pt-6 text-[18px] lg:text-2xl lg:w-[800px] mx-auto">Creddy uses <span className="font-bold text-purple-600">NFTs</span> to tokenize and authenticate <span className="font-bold text-purple-600">educational credentials</span> and co-curricular achievements, ensuring <span className="font-bold text-purple-600">transparency</span>, <span className="font-bold text-purple-600">integrity</span>, and <span className="font-bold text-purple-600">ease of credit conversion</span>.</p>
+                  <p className="pt-6 text-[18px] lg:text-xl lg:w-[800px] mx-auto">Creddy uses <span className="font-bold text-purple-600">NFTs</span> to tokenize and authenticate <span className="font-bold text-purple-600">educational credentials</span> and co-curricular achievements, ensuring <span className="font-bold text-purple-600">transparency</span>, <span className="font-bold text-purple-600">integrity</span>, and <span className="font-bold text-purple-600">ease of credit conversion</span>.</p>
                 </section>
 
                 {/* Features Section */}

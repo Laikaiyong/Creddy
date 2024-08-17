@@ -79,6 +79,7 @@ const VotingSystem: React.FC = () => {
 	};
 
 	return (
+		<>
 		<div>
 			<h1>Voting System</h1>
 			{!contract && <button onClick={connectWallet}>Connect Wallet</button>}
@@ -98,6 +99,9 @@ const VotingSystem: React.FC = () => {
 			<button onClick={() => handleVote(true)}>Upvote</button>
 			<button onClick={() => handleVote(false)}>Downvote</button>
 		</div>
+		<div>
+			</div>
+		</>
 	);
 };
 

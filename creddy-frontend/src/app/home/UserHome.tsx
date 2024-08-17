@@ -2,19 +2,21 @@ import ProfileChart from "@/components/custom/ProfileChart";
 import { RecentTransactions } from "@/components/custom/RecentTransactions";
 import NFTCarousel from "@/components/custom/NFTCarousel";
 import SchoolList from "@/components/custom/SchoolList";
+import VotingSystem from "@/components/scroll/VotingComponent";
 
 export default function UserHome() {
     return (
         <div className="md:mx-24 mx-12">
             <h1 className="text-4xl mt-4 py-2 font-semibold">Welcome back, wallet_id</h1>
             <p className="text-gray-600">Take a look at your recent progress.</p>
-            <Test />
+            <VotingSystem />
+            <UserDashboard />
         </div>
     );
 }
 
 
-function Test() {
+function UserDashboard() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-5 gap-2 py-4 mt-4 min-h-screen">
             <div className="p-8 bg-white rounded-xl grid md:col-span-2 drop-shadow-lg">

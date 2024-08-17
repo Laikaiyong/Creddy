@@ -12,6 +12,7 @@
 		"@aptos-labs/aptos-client": "^0.1.0",
 		"@aptos-labs/ts-sdk": "^1.26.0",
 		"@radix-ui/react-slot": "^1.1.0",
+		"aptos": "^1.21.0",
 		"chart.js": "^4.4.3",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",

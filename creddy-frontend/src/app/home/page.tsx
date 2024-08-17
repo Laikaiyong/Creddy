@@ -12,7 +12,7 @@ enum UserRole {
 }
 
 export default function HomePage() {
-  const [userRole, setUserRole] = useState("");
+  const [userRole, setUserRole] = useState("User");
 
   useEffect(() => {
     let value = localStorage.getItem("userRole") || "";
@@ -143,7 +143,7 @@ function Toggle(
         isChecked ? "bg-indigo-700" : "bg-indigo-600"
       } hover:bg-indigo-500 active:bg-indigo-700`}
     >
-      {userRole === UserRole.User ? "Switch to Company" : "Switch to User"}
+      {userRole === UserRole.User ? "User" : "Company"}
     </button>
   );
 }

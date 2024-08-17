@@ -1,11 +1,40 @@
 "use client";
 
+import { useEffect, useState } from 'react';
 import OrbitingCircles from "@/components/magicui/orbiting-circles";
 
+const useResponsiveRadius = (defaultRadius: number) => {
+  const [radius, setRadius] = useState(defaultRadius);
+
+  useEffect(() => {
+    const updateRadius = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        const newRadius = defaultRadius * 0.7;
+        setRadius(newRadius);
+      } else if (width < 1024) {
+        const newRadius = defaultRadius * 0.85;
+        setRadius(newRadius);
+      } else {
+        setRadius(defaultRadius);
+      }
+    };
+
+    window.addEventListener('resize', updateRadius);
+    updateRadius();
+
+    return () => window.removeEventListener('resize', updateRadius);
+  }, []);
+
+  return radius;
+};
+
 export default function OrbitingCirclesFunc() {
+  const innerResponsiveRadius = useResponsiveRadius(80);
+  const outerResponsiveRadius = useResponsiveRadius(190);
   return (
-    <div className="relative flex h-[500px] max:lg-[200px] lg:w-full flex-col items-center justify-center overflow-hidden rounded-lg">
-      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-purple-600 to-purple-950 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white">
+    <div className="relative flex h-[500px] max:lg-[200px] w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-purple-600 to-purple-950 bg-clip-text text-center text-3xl lg:text-8xl font-semibold leading-none text-transparent dark:from-white">
         Creddy
       </span>
 
@@ -14,7 +43,7 @@ export default function OrbitingCirclesFunc() {
         className="size-[35px] border-none bg-transparent"
         duration={20}
         delay={20}
-        radius={80}
+        radius={innerResponsiveRadius}
       >
         <Icons.vercel />
       </OrbitingCircles>
@@ -22,7 +51,7 @@ export default function OrbitingCirclesFunc() {
         className="size-[35px] border-none bg-transparent"
         duration={20}
         delay={10}
-        radius={80}
+        radius={innerResponsiveRadius}
       >
         <Icons.aptos />
       </OrbitingCircles>
@@ -30,7 +59,7 @@ export default function OrbitingCirclesFunc() {
       {/* Outer Circles (reverse) */}
       <OrbitingCircles
         className="size-[50px] border-none bg-transparent"
-        radius={190}
+        radius={outerResponsiveRadius}
         duration={20}
         reverse
       >
@@ -38,7 +67,7 @@ export default function OrbitingCirclesFunc() {
       </OrbitingCircles>
       <OrbitingCircles
         className="size-[50px] border-none bg-transparent"
-        radius={190}
+        radius={outerResponsiveRadius}
         duration={20}
         delay={20}
         reverse
@@ -47,7 +76,7 @@ export default function OrbitingCirclesFunc() {
       </OrbitingCircles>
       <OrbitingCircles
         className="size-[50px] border-none bg-transparent"
-        radius={190}
+        radius={outerResponsiveRadius}
         duration={10}
         delay={30}
         reverse
