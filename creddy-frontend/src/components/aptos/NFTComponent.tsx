@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { AptosAccount } from "aptos";
-import { mintNFT, getNFTInfo, TokenInfo } from './NFTInteraction';
+import { mintNFT, getNFTInfo } from './NFTInteraction';
 
 const NFTComponent: React.FC = () => {
-    const [nfts, setNfts] = useState<TokenInfo[]>([]);
+    const [nfts, setNfts] = useState([]);
     const [account, setAccount] = useState<AptosAccount | null>(null);
 
     useEffect(() => {

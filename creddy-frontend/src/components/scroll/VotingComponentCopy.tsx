@@ -57,6 +57,7 @@ const VotingComponent: React.FC<VotingSystemProps> = ({ postId }) => {
       }
     } else {
       console.error("Ethereum object not found, install MetaMask.");
+
     }
   };
 
@@ -95,22 +96,6 @@ const VotingComponent: React.FC<VotingSystemProps> = ({ postId }) => {
 
   return (
     <> 
-    {!contract && (
-      <Dialog>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Confirm Deletion</DialogTitle>
-            <DialogDescription>
-              Are you sure you want to delete this item? This action cannot be undone.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-          <button onClick={() => handleVote(true)}><AiFillCaretUp /></button>
-          <button onClick={() => handleVote(true)}><AiFillCaretUp /></button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    )}
     <div className="flex flex-row gap-4 px-2 py-1 rounded-2xl bg-gray-100 drop-shadow-md justify-center m-2">
       <div className="flex">
         <button onClick={() => handleVote(true)}><AiFillCaretUp /></button>
