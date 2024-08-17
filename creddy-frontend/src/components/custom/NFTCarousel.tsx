@@ -1,6 +1,7 @@
 "use client";
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import VotingComponent from "../scroll/VotingComponentCopy";
 
 const NFTs = [
     {
@@ -46,6 +47,7 @@ export default function NFTCarousel() {
                             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center rounded-lg">
                                 <span className="text-white text-lg font-semibold">{nft.title}</span>
                             </div>
+                            <VotingComponent postId={nft.id} />
                         </CarouselItem>
                     ))}
                 </CarouselContent>

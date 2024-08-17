@@ -87,32 +87,6 @@ function Navbar({ userRole, setUserRole }: {
             </button>
           </div>
 
-          <ul
-            className={`${
-              isMenuOpen ? "flex" : "hidden"
-            } md:flex items-center space-x-4`}
-          >
-            {userRole === UserRole.User && (
-              <>
-                <li>
-                  <a href="/home">Home</a>
-                </li>
-                <li>
-                  <a href="/credit">Credit</a>
-                </li>
-              </>
-            )}
-            {userRole === UserRole.Company && (
-              <>
-                <li>
-                  <a href="/home">Home</a>
-                </li>
-                <li>
-                  <a href="/balance">Balance</a>
-                </li>
-              </>
-            )}
-          </ul>
           <WalletButtons />
         </nav>
       </header>

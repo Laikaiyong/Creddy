@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
+import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+
 
 const contractAddress = process.env.NEXT_PUBLIC_SCROLL_CONTRACT;
 const contractABI = [
@@ -79,8 +81,7 @@ const VotingSystem: React.FC = () => {
 	};
 
 	return (
-		<>
-		<div>
+		 <div>
 			<h1>Voting System</h1>
 			{!contract && <button onClick={connectWallet}>Connect Wallet</button>}
 			<div>
@@ -98,10 +99,7 @@ const VotingSystem: React.FC = () => {
 			</div>
 			<button onClick={() => handleVote(true)}>Upvote</button>
 			<button onClick={() => handleVote(false)}>Downvote</button>
-		</div>
-		<div>
-			</div>
-		</>
+		</div> 
 	);
 };
 

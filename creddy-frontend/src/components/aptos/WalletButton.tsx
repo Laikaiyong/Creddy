@@ -51,6 +51,7 @@ export default function WalletButtons() {
 	const disconnect = () => {
 		setKeylessAccount(null);
 		localStorage.removeItem("keylessAccount");
+    window.location.href = "/";
 		toast.success("Successfully disconnected account");
 	};
 
