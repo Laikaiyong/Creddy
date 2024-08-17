@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog" 
 
 const contractAddress = process.env.NEXT_PUBLIC_SCROLL_CONTRACT;
 const contractABI = [
@@ -86,7 +95,26 @@ const VotingComponent: React.FC<VotingSystemProps> = ({ postId }) => {
 
   return (
     <> 
-    {!contract && <button onClick={connectWallet}>Connect Wallet</button>}
+    {!contract && (
+      <Dialog>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Confirm Deletion</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to delete this item? This action cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button type="button" variant="secondary">
+              Cancel
+            </Button>
+            <Button type="button" variant="destructive">
+              Delete
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    )}
     <div className="flex flex-row gap-4 px-2 py-1 rounded-2xl bg-gray-100 drop-shadow-md justify-center m-2">
       <div className="flex">
         <button onClick={() => handleVote(true)}><AiFillCaretUp /></button>
