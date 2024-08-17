@@ -51,8 +51,8 @@ export default function ConvertDialog() {
               <div className="flex items-center space-x-2 text-purple-700">
                 <IoMdInformationCircleOutline className="text-[32px]" />
                 <p>
-                  You have up to <strong>0 (+0) credits</strong> available
-                  towards a Bachelor's degree. Credits vary by degree.
+                  You have up to <strong>0 (+0) credits</strong> {"available
+                  towards a Bachelor's degree. Credits vary by degree."}
                 </p>
               </div>
             </div>
