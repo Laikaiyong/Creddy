@@ -1,17 +1,36 @@
+"use client";
+
 import Feature from "@/components/custom/Feature";
+import { motion } from "framer-motion";
+import React from "react";
+import { AuroraBackground } from "../components/ui/aurora-background";
 import MeetOurTeam from "@/components/custom/MeetOurTeam";
 import Link from "next/link";
 import Navbar from "@/components/custom/Navbar";
 import OrbitingCirclesFunc from "@/components/custom/OrbitingCircle";
 
 export default function LandingPage() {
+    const animations = {
+      initial:{ opacity: 0.0, y: 40 },
+      whileInView:{ opacity: 1, y: 0 },
+      transition:{
+        delay: 0.3,
+        duration: 0.8,
+        ease: "easeInOut",
+      }
+    }
     
     return (
         <>
             <main className="bg-white text-black">       
                 <Navbar />         
                 {/* Hero Section */}
-                <section id="hero" className="px-4 lg:px-10 text-center pt-5 lg:pt-10 space-y-4g h-[80vh] flex flex-col items-center justify-center">
+                <section id="hero" className="px-4 lg:px-10 text-center pt-5 lg:pt-10 space-y-4g h-[80vh] w-full flex flex-col items-center justify-center">
+                <AuroraBackground>
+                <motion.div
+                  {...animations}
+                  className="relative flex flex-col gap-4 items-center justify-center px-4"
+                >
                     <h1 className="text-4xl bg-clip-text text-transparent bg-gradient-to-r font-extrabold mx-auto my-2 sm:text-6xl"
                             style={{
                                 backgroundImage: "linear-gradient(179.1deg, #2e0452 0.77%, rgba(255, 255, 255, 0) 182.09%)",
@@ -36,6 +55,8 @@ export default function LandingPage() {
                         </button>
                       </Link>
                     </div>
+                  </motion.div>
+                  </AuroraBackground>
                 </section>
 
                 {/* About Section */}
