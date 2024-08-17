@@ -1,6 +1,7 @@
 import ProfileChart from "@/components/custom/ProfileChart";
 import { RecentTransactions } from "@/components/custom/RecentTransactions";
 import NFTCarousel from "@/components/custom/NFTCarousel";
+import SchoolList from "@/components/custom/SchoolList";
 
 export default function UserHome() {
     return (
@@ -34,19 +35,12 @@ function Test() {
                 </div>
             </div>
 
-            <div className="grid md:col-span-3 gap-2">
+            <div className="grid md:col-span-3 gap-2"> {/* Credit Conversion  */}
                 <div className="grid md:grid-cols-2 gap-2">
                     <div className="flex relative py-8 bg-gray-200 rounded-xl">
                         <div className="relative z-10 max-w-screen-xl text-gray-600 sm:px-4 md:px-8">
-                            <div className="max-w-lg space-y-3 px-4 sm:mx-auto sm:text-center sm:px-0">
-                                <h3 className="text-cyan-800 font-semibold">Credentials</h3>
-                                <p className="text-black text-3xl font-semibold sm:text-4xl">
-                                    Get in touch
-                                </p>
-                                <p className="text-gray-600">
-                                    We&#39;d love to hear from you! Please fill out the form bellow.
-                                </p>
-                            </div>
+                            <h3 className="font-semibold self-start text-cyan-800 pb-2">Credit Conversion</h3>
+                            <SchoolList />
                         </div>
                         <div
                             className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
