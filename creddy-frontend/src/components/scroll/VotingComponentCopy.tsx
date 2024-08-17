@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog" 
+import { WalletConnectionDialog } from "./ConnectWalletDialog";
 
 const contractAddress = process.env.NEXT_PUBLIC_SCROLL_CONTRACT;
 const contractABI = [
@@ -57,7 +49,7 @@ const VotingComponent: React.FC<VotingSystemProps> = ({ postId }) => {
       }
     } else {
       console.error("Ethereum object not found, install MetaMask.");
-
+        
     }
   };
 
@@ -96,6 +88,10 @@ const VotingComponent: React.FC<VotingSystemProps> = ({ postId }) => {
 
   return (
     <> 
+    <WalletConnectionDialog 
+        connectWallet={connectWallet} 
+        isConnected={!!contract}
+      />
     <div className="flex flex-row gap-4 px-2 py-1 rounded-2xl bg-gray-100 drop-shadow-md justify-center m-2">
       <div className="flex">
         <button onClick={() => handleVote(true)}><AiFillCaretUp /></button>
