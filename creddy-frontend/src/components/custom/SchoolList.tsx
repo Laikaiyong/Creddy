@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import ConvertDialog from "./ConvertDialog";
 
 export default function SchoolList() {
   return (
@@ -9,7 +9,7 @@ export default function SchoolList() {
         <div key={school.id} className="bg-white p-5 rounded-lg w-full">
           <div className="w-full flex justify-between items-center">
             <img src={school.image} alt={school.name} className="w-[50%] h-auto object-contain" />
-            <Button>Convert</Button>
+            <ConvertDialog />
           </div>
         </div>
       ))}
