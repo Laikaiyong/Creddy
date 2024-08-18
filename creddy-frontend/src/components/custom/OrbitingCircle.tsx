@@ -89,13 +89,13 @@ export default function OrbitingCirclesFunc() {
 
 const Icons = {
   nextJS: () => (
-    <img src="https://static-00.iconduck.com/assets.00/nextjs-icon-2048x2048-x6n5t31i.png" alt="NextJS logo" />
+    <img src="https://cdn.worldvectorlogo.com/logos/next-js.svg" alt="NextJS logo" />
   ),
   aptos: () => (
     <img src="https://cryptologos.cc/logos/aptos-apt-logo.png" alt="Aptos Logo" />
   ),
   vercel: () => (
-    <img src="https://static-00.iconduck.com/assets.00/vercel-icon-512x449-3422jidz.png" alt="Vercel Logo" />
+    <img src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" alt="Vercel Logo" />
   ),
   magicUi: () => (
     <img src="https://avatars.githubusercontent.com/u/166878038?s=200&v=4" alt="MagicUI Logo" />
@@ -104,3 +104,4 @@ const Icons = {
     <img src="https://static-00.iconduck.com/assets.00/google-cloud-icon-2048x1646-7admxejz.png" alt="Google Cloud Icon" />
   ),
 };
+

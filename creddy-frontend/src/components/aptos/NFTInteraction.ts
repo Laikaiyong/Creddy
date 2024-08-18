@@ -66,6 +66,7 @@ export async function mintSBT(
 	traitValues: string[]
 ): Promise<string> {
 	try {
+    console.log(account.accountAddress);
 		const transaction = await aptos.transaction.build.simple({
 			sender: account.accountAddress,
 			data: {
