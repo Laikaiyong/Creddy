@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button" // Assuming you have a Button component
 
 interface WalletConnectionDialogProps {
-  connectWallet: () => Promise<void>;
+  connectWallet: () => Promise<React.JSX.Element | undefined>;
   isConnected: boolean;
 }
 
