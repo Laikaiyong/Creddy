@@ -3,14 +3,21 @@ import { RecentTransactions } from "@/components/custom/RecentTransactions";
 import NFTCarousel from "@/components/custom/NFTCarousel";
 import SchoolList from "@/components/custom/SchoolList";
 import VotingSystem from "@/components/scroll/VotingComponent";
+import { collapseAddress } from "@/utils/address";
 import NFTComponent from "@/components/aptos/NFTComponent";
 
 export default function UserHome() {
 	return (
 		<div className='md:mx-24 mx-12'>
-			<h1 className='text-4xl mt-4 py-2 font-semibold'>Welcome back, wallet_id</h1>
+			<h1 className='text-4xl mt-4 py-2 font-semibold'>
+				Welcome back,{" "}
+				{collapseAddress(
+					localStorage.getItem("keylessAccount")
+						? JSON.parse(localStorage.getItem("keylessAccount")!).accountAddress
+						: ""
+				)}
+			</h1>
 			<p className='text-gray-600'>Take a look at your recent progress.</p>
-			<VotingSystem />
 			<UserDashboard />
 		</div>
 	);
