@@ -41,7 +41,7 @@ const NFTComponent: React.FC = () => {
 					keylessAccount,
 					"My NFT",
 					"A description of my NFT",
-					"https://avatars.githubusercontent.com/u/76078213?v=4",
+					"https://cryptologos.cc/logos/aptos-apt-logo.png",
 					["Color", "Size"],
 					["Blue", "Large"]
 				);

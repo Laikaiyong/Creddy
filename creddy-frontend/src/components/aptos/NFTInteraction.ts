@@ -74,7 +74,7 @@ export async function mintSBT(
 				functionArguments: [name, description, imageUrl, traitTypes, traitValues],
 			},
 			options: {
-				maxGasAmount: 1000000,
+				maxGasAmount: 10000,
 				gasUnitPrice: 100,
 			},
 		});

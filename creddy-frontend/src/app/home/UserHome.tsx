@@ -12,7 +12,7 @@ export default function UserHome() {
 			<h1 className='text-4xl mt-4 py-2 font-semibold'>
 				Welcome back,{" "}
 				{collapseAddress(
-					localStorage.getItem("keylessAccount")
+					typeof localStorage !== 'undefined' && localStorage.getItem("keylessAccount")
 						? JSON.parse(localStorage.getItem("keylessAccount")!).accountAddress
 						: ""
 				)}

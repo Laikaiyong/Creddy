@@ -73,9 +73,14 @@ module my_addr::nft_sbt {
         trait_types: vector<String>,
         trait_values: vector<String>
     ) acquires TokenLists {
-        let constructor_ref = object::create_object(signer::address_of(creator));
+        // Check if TokenLists exists for the creator
+        assert!(exists<TokenLists>(signer::address_of(creator)), 1); // Custom error code
+
+        let constructor_ref = object::create_named_object(creator, *string::bytes(&name));
         let token_signer = object::generate_signer(&constructor_ref);
         let token_address = signer::address_of(&token_signer);
+
+        assert!(vector::length(&trait_types) == vector::length(&trait_values), 2); // Custom error code
 
         let traits = create_traits(trait_types, trait_values);
 
@@ -95,7 +100,6 @@ module my_addr::nft_sbt {
             token_id: token_address,
         });
     }
-
     public entry fun mint_sbt(
         creator: &signer,
         name: String,
@@ -104,9 +108,14 @@ module my_addr::nft_sbt {
         trait_types: vector<String>,
         trait_values: vector<String>
     ) acquires TokenLists {
-        let constructor_ref = object::create_object(signer::address_of(creator));
+        // Check if TokenLists exists for the creator
+        assert!(exists<TokenLists>(signer::address_of(creator)), 1); // Custom error code
+
+        let constructor_ref = object::create_named_object(creator, *string::bytes(&name));
         let token_signer = object::generate_signer(&constructor_ref);
         let token_address = signer::address_of(&token_signer);
+
+        assert!(vector::length(&trait_types) == vector::length(&trait_values), 2); // Custom error code
 
         let traits = create_traits(trait_types, trait_values);
 
