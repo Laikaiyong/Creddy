@@ -12,7 +12,7 @@ export default function UserHome() {
 			<h1 className='text-4xl mt-4 py-2 font-semibold'>
 				Welcome back,{" "}
 				{collapseAddress(
-					typeof localStorage !== 'undefined' && localStorage.getItem("keylessAccount")
+					typeof localStorage !== "undefined" && localStorage.getItem("keylessAccount")
 						? JSON.parse(localStorage.getItem("keylessAccount")!).accountAddress
 						: ""
 				)}
@@ -106,7 +106,7 @@ function UserDashboard() {
 					{" "}
 					{/* Display NFT section */}
 					<div className='relative z-10 max-w-screen-xl text-gray-600 sm:px-4 md:px-8'>
-						<h3 className='text-cyan-800 font-semibold self-start pb-2'>My NFTs</h3>
+						<h3 className='text-cyan-800 font-semibold self-start pb-2'>Mint Credentials</h3>
 						<NFTComponent />
 					</div>
 					<div

@@ -1,8 +1,7 @@
 import CompanyChart from "@/components/custom/CompanyChart";
-import { RecentTransactions } from "@/components/custom/RecentTransactions";
-import { CompanyNFTCarousel } from "@/components/custom/NFTCarousel";
-import SchoolList from "@/components/custom/SchoolList";
-import CompanyNFT from "@/components/custom/CompanyNFT";
+import CompanyNFT from "@/components/custom/CompanyNFT"; 
+import MintNFTDialog from "@/components/custom/MintNFTDialog";
+import TransferNFTDialog from "@/components/custom/TransferNFTDialog";
 
 export default function CompanyHome() {
     return (
@@ -51,11 +50,11 @@ function CompanyDashboard() {
                     ></div> {/* The cool cool gradient part */}
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-2 mt-2"> {/* Credit Conversion and Recent Transactions */}
+                <div className="grid md:grid-cols-2 gap-2 mt-2"> {/* NFT Minting */}
                     <div className="flex relative py-8 bg-gray-200 rounded-xl">
                         <div className="relative z-10 max-w-screen-xl text-gray-600 sm:px-4 md:px-8">
-                            <h3 className="font-semibold self-start text-cyan-800 pb-2">Credit Conversion</h3>
-                            <SchoolList />
+                            <h3 className="font-semibold self-start text-cyan-800 pb-2">Mint NFT(s)</h3>
+                            <MintNFTDialog />
                         </div>
                         <div
                             className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
@@ -66,18 +65,18 @@ function CompanyDashboard() {
                         ></div>
                     </div>
 
-                    <div className="flex relative p-8 bg-gray-200 rounded-xl"> {/* Recent Transactions Section */}
-                        <div className="flex flex-col justify-center items-center space-y-2">
-                            <h1 className="font-semibold self-start text-cyan-800">Recent Activity</h1>
-                            <RecentTransactions />
-                            <div
-                                className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
-                                style={{
-                                    background:
-                                        "linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)",
-                                }}
-                            ></div>
+                    <div className="flex relative py-8 bg-gray-200 rounded-xl">
+                        <div className="relative z-10 max-w-screen-xl text-gray-600 sm:px-4 md:px-8">
+                            <h3 className="font-semibold self-start text-cyan-800 pb-2">Transfer NFT(s)</h3>
+                            <TransferNFTDialog />
                         </div>
+                        <div
+                            className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
+                            style={{
+                                background:
+                                    "linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)",
+                            }}
+                        ></div>
                     </div>
                 </div>
             </div>
