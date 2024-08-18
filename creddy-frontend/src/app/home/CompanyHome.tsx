@@ -1,6 +1,6 @@
 import CompanyChart from "@/components/custom/CompanyChart";
 import CompanyNFT from "@/components/custom/CompanyNFT"; 
-import NFTComponent from "@/components/aptos/NFTComponent";
+import MintNFTDialog from "@/components/custom/MintNFTDialog";
 import TransferNFTDialog from "@/components/custom/TransferNFTDialog";
 
 export default function CompanyHome() {
@@ -54,7 +54,7 @@ function CompanyDashboard() {
                     <div className="flex relative py-8 bg-gray-200 rounded-xl">
                         <div className="relative z-10 max-w-screen-xl text-gray-600 sm:px-4 md:px-8">
                             <h3 className="font-semibold self-start text-cyan-800 pb-2">Mint NFT(s)</h3>
-                            <NFTComponent/>
+                            <MintNFTDialog />
                         </div>
                         <div
                             className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-3xl sm:h-[400px]"
