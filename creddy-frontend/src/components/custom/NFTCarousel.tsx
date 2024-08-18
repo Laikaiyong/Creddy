@@ -63,27 +63,4 @@ export default function NFTCarousel() {
             </Carousel>
         </>
     )
-}
-
-export function CompanyNFTCarousel() {
-    return (
-        <>
-            <Carousel className="max-w-screen">
-                <CarouselContent className="flex space-x-4">
-                    {NFTs.map((nft) => (
-                        <CarouselItem key={nft.id} className="relative group basis-1/5">
-                            <img src={nft.image} alt={nft.title} className="w-[150px] h-[150px] object-cover rounded-lg" />
-                            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center rounded-lg px-4 py-2">
-                                <span className="text-white text-sm font-semibold">
-                                    {nft.title} <br/> 
-                                     <p className="text-xs font-medium">issued by {nft.issuer}</p> <br/>
-                                     <p className="text-xs font-medium">issued on {nft.date}</p> <br/>
-                                </span>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
-        </>
-    )
-}
+};
