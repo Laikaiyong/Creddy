@@ -1,75 +1,88 @@
-import React, { useState, useEffect } from 'react';
-import { AptosAccount } from "aptos";
-import { mintNFT, getNFTInfo, TokenInfo } from './NFTInteraction';
+import React, { useState, useEffect } from "react";
+import { mintSBT, getNFTInfo, createCollection } from "./NFTInteraction";
+import { useKeylessAccount } from "@/context/KeylessAccountContext";
+
+interface NFTInfo {
+	name: string;
+	description: string;
+	imageUrl: string;
+	traits: { traitType: string; value: string }[];
+	creationTimestamp: number;
+}
 
 const NFTComponent: React.FC = () => {
-    const [nfts, setNfts] = useState<TokenInfo[]>([]);
-    const [account, setAccount] = useState<AptosAccount | null>(null);
+	const [nfts, setNfts] = useState<NFTInfo[]>([]);
+	const { keylessAccount } = useKeylessAccount();
+	const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        // Initialize account (you'd typically get this from a wallet connection)
-        const newAccount = new AptosAccount();
-        setAccount(newAccount);
+	useEffect(() => {
+		fetchNFTs();
+	}, [keylessAccount]);
 
-        // Fetch NFTs
-        const fetchNFTs = async () => {
-            if (account) {
-                // const nftList = await listAllNFTs(account.address().hex());
-                // const nftInfoPromises = nftList.map(nftId => getNFTInfo(nftId));
-                // const nftInfos = await Promise.all(nftInfoPromises);
-                // setNfts(nftInfos);
-            }
-        };
+	const fetchNFTs = async () => {
+		if (keylessAccount) {
+			setIsLoading(true);
+			try {
+				// Assuming getNFTInfo can retrieve all NFTs for an account
+				const nftInfos = await getNFTInfo(keylessAccount.accountAddress.toString());
+				setNfts(Array.isArray(nftInfos) ? nftInfos : [nftInfos]);
+			} catch (error) {
+				console.error("Error fetching NFTs:", error);
+			} finally {
+				setIsLoading(false);
+			}
+		}
+	};
+	const handleMintNFT = async () => {
+		if (keylessAccount) {
+			setIsLoading(true);
+			try {
+				const txHash = await mintSBT(
+					keylessAccount,
+					"My NFT",
+					"A description of my NFT",
+					"https://avatars.githubusercontent.com/u/76078213?v=4",
+					["Color", "Size"],
+					["Blue", "Large"]
+				);
+				console.log("NFT minted, transaction hash:", txHash);
+				await fetchNFTs(); // Refresh NFT list after minting
+			} finally {
+				setIsLoading(false);
+			}
+		}
+	};
 
-        fetchNFTs();
-    }, [account]);
-
-    const handleMintNFT = async () => {
-        if (account) {
-            try {
-                const txHash = await mintNFT(
-                    account,
-                    "My NFT",
-                    "A description of my NFT",
-                    "https://example.com/image.png",
-                    [
-                        { trait_type: "Color", value: "Blue" },
-                        { trait_type: "Size", value: "Large" }
-                    ]
-                );
-                console.log("NFT minted, transaction hash:", txHash);
-                // Refresh NFT list
-                // const nftList = await listAllNFTs(account.address().hex());
-                // const nftInfoPromises = nftList.map(nftId => getNFTInfo(nftId));
-                // const nftInfos = await Promise.all(nftInfoPromises);
-                // setNfts(nftInfos);
-            } catch (error) {
-                console.error("Error minting NFT:", error);
-            }
-        }
-    };
-
-    return (
-        <div>
-            <h1>My NFTs</h1>
-            <button onClick={handleMintNFT}>Mint New NFT</button>
-            <ul>
-                {nfts.map((nft, index) => (
-                    <li key={index}>
-                        <h3>{nft.name}</h3>
-                        <p>{nft.description}</p>
-                        <img src={nft.image_url} alt={nft.name} style={{maxWidth: '200px'}} />
-                        <h4>Traits:</h4>
-                        <ul>
-                            {nft.traits.map((trait, traitIndex) => (
-                                <li key={traitIndex}>{trait.trait_type}: {trait.value}</li>
-                            ))}
-                        </ul>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+	return (
+		<div>
+			<h2 className='text-2xl font-bold mb-4'>My NFTs</h2>
+			<button
+				onClick={handleMintNFT}
+				className='bg-purple-600 text-white px-4 py-2 rounded-md mb-4'
+				disabled={isLoading}
+			>
+				{isLoading ? "Minting..." : "Mint New NFT"}
+			</button>
+			{isLoading && <p>Loading...</p>}
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+				{nfts.map((nft, index) => (
+					<div key={index} className='border rounded-lg p-4'>
+						<h3 className='text-xl font-semibold'>{nft.name}</h3>
+						<p>{nft.description}</p>
+						<img src={nft.imageUrl} alt={nft.name} className='w-full h-48 object-cover mt-2' />
+						<h4 className='mt-2 font-medium'>Traits:</h4>
+						<ul>
+							{nft.traits.map((trait, traitIndex) => (
+								<li key={traitIndex}>
+									{trait.traitType}: {trait.value}
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
+			</div>
+		</div>
+	);
 };
 
 export default NFTComponent;
