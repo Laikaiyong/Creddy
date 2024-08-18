@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import OrbitingCircles from "@/components/magicui/orbiting-circles";
+import { IM_Fell_DW_Pica } from 'next/font/google';
+import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
 
 const useResponsiveRadius = (defaultRadius: number) => {
   const [radius, setRadius] = useState(defaultRadius);
@@ -83,6 +85,36 @@ export default function OrbitingCirclesFunc() {
       >
         <Icons.googleCloud />
       </OrbitingCircles>
+
+      <OrbitingCircles
+        className="size-[50px] border-none bg-transparent"
+        radius={outerResponsiveRadius}
+        duration={40}
+        delay={30}
+        reverse
+      >
+        <Icons.hardhat />
+      </OrbitingCircles>
+
+      <OrbitingCircles
+        className="size-[50px] border-none bg-transparent"
+        radius={outerResponsiveRadius}
+        duration={3}
+        delay={30}
+        reverse
+      >
+        <Icons.scroll />
+      </OrbitingCircles>
+
+      <OrbitingCircles
+        className="size-[50px] border-none bg-transparent"
+        radius={outerResponsiveRadius}
+        duration={5}
+        delay={20}
+        reverse
+      >
+        <Icons.tailwindcss />
+      </OrbitingCircles>
     </div>
   );
 }
@@ -103,4 +135,13 @@ const Icons = {
   googleCloud: () => (
     <img src="https://image.similarpng.com/very-thumbnail/2020/06/Logo-google-cloud-icon-vector-PNG.png" alt="Google Cloud Icon" />
   ),
+  hardhat: () => (
+    <img src="https://seeklogo.com/images/H/hardhat-logo-888739EBB4-seeklogo.com.png" alt="Hardhat Icon"/>
+  ),
+  scroll: () => (
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTtMWmmj_x1TEQJtBpOzkarPSZdIxZ23K-8w&s"/>
+  ),
+  tailwindcss: () => (
+    <img src="https://w7.pngwing.com/pngs/293/485/png-transparent-tailwind-css-hd-logo.png"/>
+  )
 };
