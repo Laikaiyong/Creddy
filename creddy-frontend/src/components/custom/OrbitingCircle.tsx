@@ -101,7 +101,6 @@ const Icons = {
     <img src="https://avatars.githubusercontent.com/u/166878038?s=200&v=4" alt="MagicUI Logo" />
   ),
   googleCloud: () => (
-    <img src="https://static-00.iconduck.com/assets.00/google-cloud-icon-2048x1646-7admxejz.png" alt="Google Cloud Icon" />
+    <img src="https://image.similarpng.com/very-thumbnail/2020/06/Logo-google-cloud-icon-vector-PNG.png" alt="Google Cloud Icon" />
   ),
 };
-
